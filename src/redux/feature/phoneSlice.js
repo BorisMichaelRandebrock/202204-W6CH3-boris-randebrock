@@ -11,6 +11,14 @@ const phoneSlice = createSlice({
       ...phone,
       phoneNumber: [...phone, action.payload],
     }),
+
+    removeLastDigit: (phone, action) => ({
+      ...phone,
+      phoneNumber: [...phone.phoneNumber].slice(
+        0,
+        phone.phoneNumber.length - 1
+      ),
+    }),
   },
 });
 
